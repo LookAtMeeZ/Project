@@ -9,6 +9,8 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -21,42 +23,34 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 
+
 public class MainActivity extends AppCompatActivity {
+
+    ImageButton tv;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    Intent intent = new Intent(this, DisplayMessageActivity.class);
+    public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        tv = (ImageButton) findViewById(R.id.imageButton);
+        registerForContextMenu(tv);
 
         final ImageButton b3 = (ImageButton) findViewById(R.id.imageButton);
         final ImageButton b2 = (ImageButton) findViewById(R.id.b2);
 
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                switch (v.getId()) {
-
-                    case R.id.imageButton:
-
-                }
-            }
-        };
-
-
-        b3.setOnClickListener(listener);
-
-        b2.setOnClickListener(listener);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        // See https://g.co/AppIndexing/AndroidStudio for more informatixon.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
@@ -99,7 +93,17 @@ public class MainActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
-    public void OnImage(){
+  public void onImage(View v) {
+      Animation anim = null;
+      Intent intent = new Intent(this, Main2Activity.class);
+      anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.scale);
+      tv.startAnimation(anim);
+      startActivity(intent);
+
+  }
+    public void onShop(View v) {
+        Intent intent = new Intent(this, Main3Activity.class);
+        startActivity(intent);
 
     }
 }
