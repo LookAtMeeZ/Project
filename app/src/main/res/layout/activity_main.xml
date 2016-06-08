@@ -7,31 +7,48 @@
 
     tools:context="com.example.user.project.MainActivity"
     android:background="@drawable/ade">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scrollbars="none" />
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/imageButton"
         android:background="@drawable/plus"
         android:onClick="onImage"
-        android:layout_marginLeft="44dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="57dp"
-        android:layout_above="@+id/b2"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="46dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:id="@+id/b2"
         android:background="@drawable/untitled"
-        android:layout_marginBottom="146dp"
-        android:layout_marginLeft="47dp"
-        android:layout_marginStart="47dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
         android:onClick="onShop"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/imageButton"
         android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton" />
+        android:layout_toEndOf="@+id/imageButton"
+        android:layout_marginTop="47dp" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageButton3"
+        android:background="@drawable/set"
+        android:layout_below="@+id/b2"
+        android:layout_alignLeft="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton"
+        android:layout_marginTop="136dp" />
 
 </RelativeLayout>
