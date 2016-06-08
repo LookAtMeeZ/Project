@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
 
-
+    DbOpenHelper dbHelper;
     ArrayList<prod> list;
     EditText n;
     ListView lv;
