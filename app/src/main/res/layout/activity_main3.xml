@@ -7,13 +7,21 @@
     tools:context="com.example.user.project.Main3Activity"
     android:background="@drawable/green">
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox"
-        android:layout_marginTop="30dp"
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView2"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView"
+        android:background="@drawable/trash"
+        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:textColor="#422fbe" />
+        android:onClick="onTrash"/>
 </RelativeLayout>
