@@ -8,14 +8,16 @@
     android:background="@drawable/ade">
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:layout_marginLeft="95dp"
         android:layout_marginStart="95dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:shadowColor="#adba96"
+        android:textColor="#000000" />
 
     <Button
         android:layout_width="wrap_content"

@@ -5,23 +5,20 @@
     android:layout_height="match_parent"
     android:padding="0dp"
     tools:context="com.example.user.project.Main3Activity"
-    android:background="@drawable/green">
+    android:background="@drawable/ade">
 
-    <TextView
-        android:layout_width="350dp"
-        android:layout_height="500dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listview"
+        android:layout_above="@+id/imageButton3" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/imageView"
+        android:id="@+id/imageButton3"
         android:background="@drawable/trash"
-        android:layout_below="@+id/textView2"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="onTrash"/>
 </RelativeLayout>
