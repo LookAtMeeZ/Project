@@ -9,30 +9,49 @@
     android:background="@drawable/ade">
 
     <ImageButton
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/imageButton"
         android:background="@drawable/plus"
         android:onClick="onImage"
-        android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="46dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <ImageButton
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:id="@+id/b2"
-        android:background="@drawable/untitled"
-        android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp"
+        android:background="@drawable/refr"
         android:onClick="onShop"
+        android:layout_marginRight="27dp"
+        android:layout_marginEnd="27dp"
         android:layout_below="@+id/imageButton"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton"
-        android:layout_marginTop="47dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:id="@+id/b4"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:background="@drawable/untitled"
+        android:onClick="onSop"
+        android:layout_marginTop="63dp"
+        android:layout_below="@+id/b2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/b5"
+        android:background="@drawable/inf"
+        android:layout_below="@+id/b4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="inf" />
 
 
 </RelativeLayout>

@@ -38,7 +38,7 @@ public class Main2Activity extends AppCompatActivity {
         TextView infoTextView = (TextView)findViewById(R.id.textView);
 
         try {
-            mDatabaseHelper = new DatabaseHelper(this);
+            mDatabaseHelper = new DatabaseHelper(this, "mydatabase.db");
             mSqLiteDatabase = mDatabaseHelper.getWritableDatabase();
             ContentValues value = new ContentValues();
             value.put(DatabaseHelper.PROD_NAME_COLUMN, n.getText().toString());
@@ -51,11 +51,12 @@ public class Main2Activity extends AppCompatActivity {
         }
 
         try {
-            mDatabaseHelper = new DatabaseHelper(this);
+            mDatabaseHelper = new DatabaseHelper(this, "mydatabase.db");
             mSqLiteDatabase = mDatabaseHelper.getReadableDatabase();
             Cursor cursor = mSqLiteDatabase.query("prods", new String[] {DatabaseHelper.PROD_NAME_COLUMN},null, null,null, null, null);
+
             if (cursor.moveToFirst()) {
-                infoTextView.setText("");
+                infoTextView.setText(cursor.getString(0));
                 while (cursor.moveToNext()) {
                     infoTextView.setText(infoTextView.getText()+"\n"+cursor.getString(0));
                 }

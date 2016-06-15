@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CursorAdapter;
 import android.widget.EditText;
@@ -21,6 +22,9 @@ import java.util.ArrayList;
 public class Main3Activity extends AppCompatActivity {
     private DatabaseHelper mDatabaseHelper;
     private SQLiteDatabase mSqLiteDatabase;
+    private DatabaseHelper mDatabaseHelper1;
+    private SQLiteDatabase mSqLiteDatabase1;
+    ListView lv;
 
 
     int size=0;
@@ -29,25 +33,43 @@ public class Main3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-        ListView lv =  (ListView)findViewById(R.id.listview);
+        lv =  (ListView)findViewById(R.id.listview);
 
 
 
        try {
-            mDatabaseHelper = new DatabaseHelper(this);
+            mDatabaseHelper = new DatabaseHelper(this,"mydatabase.db");
             mSqLiteDatabase = mDatabaseHelper.getReadableDatabase();
-            Cursor cursor = mSqLiteDatabase.query("prods", new String[] {DatabaseHelper.PROD_NAME_COLUMN},null, null,null, null, null);
-            CursorAdapter listAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor,new String[]{"NAME"}, new int[]{android.R.id.text1},0);
+            mDatabaseHelper1 = new DatabaseHelper(this,"database2.db");
+            mSqLiteDatabase1 = mDatabaseHelper1.getWritableDatabase();
+            Cursor cursor = mSqLiteDatabase.query("prods", new String[] {"_id","prod_name"},null, null,null, null, null);
+            CursorAdapter listAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor,new String[]{"prod_name"}, new int[]{android.R.id.text1},0);
             lv.setAdapter(listAdapter);
-            mSqLiteDatabase.close();
-            mDatabaseHelper.close();
+
+
+
+    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+         ContentValues value = new ContentValues();
+         Cursor c = (Cursor)lv.getItemAtPosition(position);
+         value.put(DatabaseHelper.PROD_NAME_COLUMN,  c.getString(c.getColumnIndex("prod_name")));
+
+
+        mSqLiteDatabase1.insert(DatabaseHelper.DATABASE_TABLE,null,value);
+
+    }
+    });
+
         } catch(SQLiteException e){
             Toast t = Toast.makeText(this, "БД не доступна", Toast.LENGTH_SHORT);
             t.show();
         }
     }
     public void onTrash(View v) {
-        mSqLiteDatabase.delete(DatabaseHelper.PROD_NAME_COLUMN, null, null);
+        mSqLiteDatabase.delete("prods", null, null);
+        mSqLiteDatabase.close();
+        mDatabaseHelper.close();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 

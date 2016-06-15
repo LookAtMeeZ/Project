@@ -12,15 +12,15 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public static final String PROD_NAME_COLUMN = "prod_name";
 
-    private static final String DATABASE_NAME = "mydatabase.db";
+   // private static  String DATABASE_NAME = "mydatabase.db";
     private static final int DATABASE_VERSION = 1;
     public static final String DATABASE_TABLE = "prods";
     private static final String DATABASE_CREATE_SCRIPT = "CREATE TABLE "
             + DATABASE_TABLE + " (_id integer primary key autoincrement, " + PROD_NAME_COLUMN
             + " text);";
 
-    DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    DatabaseHelper(Context context,String dn) {
+        super(context,dn, null, DATABASE_VERSION);
     }
 
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,

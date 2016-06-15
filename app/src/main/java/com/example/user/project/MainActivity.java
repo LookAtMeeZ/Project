@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageButton b3 = (ImageButton) findViewById(R.id.imageButton);
         final ImageButton b2 = (ImageButton) findViewById(R.id.b2);
+        final ImageButton b4 = (ImageButton) findViewById(R.id.b4);
+        final ImageButton b5 = (ImageButton) findViewById(R.id.b5);
 
 
 
@@ -108,6 +110,15 @@ public class MainActivity extends AppCompatActivity {
     public void onShop(View v) {
         Intent intent = new Intent(this, Main3Activity.class);
         startActivity(intent);
+
+    }
+    public void onSop(View v) {
+        Intent intent = new Intent(this, Main4Activity.class);
+        startActivity(intent);
+
+    }
+    public void inf(View v) {
+
 
     }
 }
