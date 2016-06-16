@@ -57,6 +57,11 @@ public class Main4Activity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+    public void onBack(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
+    }
 
 
 }

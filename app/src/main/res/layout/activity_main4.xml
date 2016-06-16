@@ -6,7 +6,7 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="450dp"
         android:id="@+id/listview2"
         android:layout_gravity="center_horizontal" />
 
@@ -14,7 +14,15 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton4"
-        android:layout_gravity="center_horizontal"
         android:background="@drawable/trash"
-        android:onClick="delete"/>
+        android:onClick="delete"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageButton6"
+        android:background="@drawable/back"
+        android:onClick="onBack"/>
+
 </LinearLayout>

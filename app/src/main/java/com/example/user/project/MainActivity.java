@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -31,6 +32,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ImageButton tv;
+    ImageButton b2;
+    ImageButton b4;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -49,9 +52,10 @@ public class MainActivity extends AppCompatActivity {
         registerForContextMenu(tv);
 
         final ImageButton b3 = (ImageButton) findViewById(R.id.imageButton);
-        final ImageButton b2 = (ImageButton) findViewById(R.id.b2);
-        final ImageButton b4 = (ImageButton) findViewById(R.id.b4);
+        b2 = (ImageButton) findViewById(R.id.b2);
+        b4 = (ImageButton) findViewById(R.id.b4);
         final ImageButton b5 = (ImageButton) findViewById(R.id.b5);
+
 
 
 
@@ -108,17 +112,28 @@ public class MainActivity extends AppCompatActivity {
 
   }
     public void onShop(View v) {
+        Animation anim = null;
+        anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.scale);
+        b2.startAnimation(anim);
         Intent intent = new Intent(this, Main3Activity.class);
         startActivity(intent);
 
     }
     public void onSop(View v) {
+        Animation anim = null;
+        anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.scale);
+        b4.startAnimation(anim);
         Intent intent = new Intent(this, Main4Activity.class);
+        startActivity(intent);
+    }
+    public void inf(View v) {
+        Intent intent = new Intent(this, Main5Activity.class);
         startActivity(intent);
 
     }
-    public void inf(View v) {
 
 
-    }
+
 }
+
+

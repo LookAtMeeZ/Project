@@ -74,4 +74,9 @@ public class Main3Activity extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void onBack(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
+    }
 }
